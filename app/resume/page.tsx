@@ -1,4 +1,11 @@
-import PDFViewer from "../components/PDFViewer";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const PDFViewer = dynamic(() => import("../components/PDFViewer"), {
+  ssr: false,
+  loading: () => <p className="text-center py-10">Loading resume...</p>,
+});
 
 export default function Resume() {
   return (
